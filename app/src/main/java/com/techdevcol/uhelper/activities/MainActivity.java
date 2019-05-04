@@ -1,6 +1,9 @@
 package com.techdevcol.uhelper.activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -13,13 +16,23 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.squareup.picasso.Picasso;
 import com.techdevcol.uhelper.R;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private NavigationView navigationView;
+    private FirebaseAuth.AuthStateListener firebaseAuthListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +49,45 @@ public class MainActivity extends AppCompatActivity
         });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                updateNavigationInfo(user);
+            }
+        };
+    }
+
+    private void updateNavigationInfo(FirebaseUser user)
+    {
+        if(user!=null)
+        {
+            View navigationHeader=navigationView.getHeaderView(0);
+            TextView email=navigationHeader.findViewById(R.id.emailNavigationHeader);
+            String userEmail=user.getEmail();
+            email.setText(user.getEmail());
+            TextView nombre=navigationHeader.findViewById(R.id.nombreNavigationHeader);
+            nombre.setText(user.getDisplayName());
+            ImageView imageView=navigationHeader.findViewById(R.id.imageNavigationHeader);
+            if(user.getPhotoUrl()!=null)
+            {
+                Picasso.get().load(user.getPhotoUrl()).into(imageView);
+            }
+            else
+            {
+                Picasso.get().load(R.drawable.icon_profile).resize(96,96).into(imageView);
+            }
+        }
+        else
+        {
+            finish();
+        }
     }
 
     @Override
@@ -71,7 +117,6 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.cerrarSesion) {
             FirebaseAuth.getInstance().signOut();
-            finish();
             return true;
         }
 
@@ -100,5 +145,20 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseAuth.getInstance().addAuthStateListener(firebaseAuthListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(firebaseAuthListener!=null)
+        {
+            FirebaseAuth.getInstance().removeAuthStateListener(firebaseAuthListener);
+        }
     }
 }
