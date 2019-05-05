@@ -75,14 +75,7 @@ public class MainActivity extends AppCompatActivity
             TextView nombre=navigationHeader.findViewById(R.id.nombreNavigationHeader);
             nombre.setText(user.getDisplayName());
             ImageView imageView=navigationHeader.findViewById(R.id.imageNavigationHeader);
-            if(user.getPhotoUrl()!=null)
-            {
-                Picasso.get().load(user.getPhotoUrl()).into(imageView);
-            }
-            else
-            {
-                Picasso.get().load(R.drawable.icon_profile).resize(96,96).into(imageView);
-            }
+            Picasso.get().load(user.getPhotoUrl()).into(imageView);
         }
         else
         {
