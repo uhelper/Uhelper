@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Uhelper</string>
+    <string name="app_name">UHelper</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -17,4 +17,6 @@
     <string name="password">Password</string>
     <string name="iniciar_sesion">Iniciar sesion</string>
     <string name="cargando">Cargando . ...</string>
+    <string name="txt_notificaciones">Notificaciones</string>
+    <string name="txt_recordatorios">Recordatorios</string>
 </resources>
