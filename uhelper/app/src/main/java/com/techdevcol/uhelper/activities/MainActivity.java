@@ -1,8 +1,6 @@
 package com.techdevcol.uhelper.activities;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -25,6 +23,8 @@ import com.techdevcol.uhelper.adapters.SectionsPagerAdapter;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private NavigationView navigationView;
+    //oidor del click sobre un item de asignaura
+    private OnclickAsignaturaListener onclickAsignaturaListener;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,5 +147,24 @@ public class MainActivity extends AppCompatActivity
         {
             FirebaseAuth.getInstance().removeAuthStateListener(firebaseAuthListener);
         }
+    }
+
+
+    public interface  OnclickAsignaturaListener
+    {
+        public void onClickCursoItem(int count);
+    }
+    public OnclickAsignaturaListener getOnclickAsignaturaListener()
+    {
+        if(onclickAsignaturaListener==null)
+        {
+            return new OnclickAsignaturaListener() {
+                @Override
+                public void onClickCursoItem(int count) {
+                    //lanzar intent cuando de da click sobre el item de asignaturas
+                }
+            };
+        }
+        return onclickAsignaturaListener;
     }
 }
