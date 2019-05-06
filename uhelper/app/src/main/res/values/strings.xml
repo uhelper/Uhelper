@@ -19,4 +19,6 @@
     <string name="cargando">Cargando . ...</string>
     <string name="txt_notificaciones">Notificaciones</string>
     <string name="txt_recordatorios">Recordatorios</string>
+    <string name="tab_text_1">Chats</string>
+    <string name="tab_text_2">Asignaturas</string>
 </resources>
