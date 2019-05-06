@@ -3,6 +3,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,15 +15,28 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
 import com.techdevcol.uhelper.R;
 import com.techdevcol.uhelper.adapters.SectionsPagerAdapter;
+import com.techdevcol.uhelper.model.Curso;
+
+import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private NavigationView navigationView;
+    private static final String TAG = "MainActivity";
     //oidor del click sobre un item de asignaura
     private OnclickAsignaturaListener onclickAsignaturaListener;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
@@ -149,7 +163,28 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    public void btn(View view)
+    {
+        FirebaseFirestore.getInstance().collection(Curso.NAME_COLLECTION).whereArrayContains("estudiantes","uOhnxcOUPUOcsaHCQJrkYRJ9Hdy2")
+                .whereLessThan("fecha",new Timestamp(new Date(System.currentTimeMillis())))
+            .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful())
+                {
+                    if (task.isSuccessful()) {
+                        List<Curso> cursos=task.getResult().toObjects(Curso.class);
+                        Toast.makeText(MainActivity.this, ""+cursos.size(), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.d(TAG, "Error getting documents: ", task.getException());
+                    }
+                }
+                else {
 
+                }
+            }
+        });
+    }
     public interface  OnclickAsignaturaListener
     {
         public void onClickCursoItem(int count);
