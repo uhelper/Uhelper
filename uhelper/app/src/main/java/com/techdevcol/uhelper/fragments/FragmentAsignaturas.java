@@ -40,7 +40,6 @@ public class FragmentAsignaturas extends Fragment {
         //Query de ejemplo se de cambiar de acuerdo la coleccion y consulta que se necesite
         recyclerView=root.findViewById(R.id.rvAsignaturas);
         String idUsuarioActual=FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Toast.makeText(this.getActivity(), "uid " + idUsuarioActual , Toast.LENGTH_SHORT).show();
         Query query=FirebaseFirestore.getInstance().collection(Curso.NAME_COLLECTION)
                 .whereArrayContains("estudiantes",idUsuarioActual);
         FirestoreRecyclerOptions<Curso> options= new FirestoreRecyclerOptions.Builder<Curso>()
@@ -50,6 +49,8 @@ public class FragmentAsignaturas extends Fragment {
         recyclerView.setHasFixedSize(true);
         GridLayoutManager lmGrid = new GridLayoutManager(this.getActivity(), 2);
         recyclerView.setLayoutManager(lmGrid);
+        MainActivity mainActivity=(MainActivity) this.getActivity();
+        asignaturasAdapter.setOnclickAsignaturaListener(mainActivity.getOnclickAsignaturaListener());
         recyclerView.setAdapter(asignaturasAdapter);
         return root;
     }
