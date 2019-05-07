@@ -37,4 +37,16 @@ public class NotificacionesActivity extends AppCompatActivity {
         rvNotificaciones.setLayoutManager(new LinearLayoutManager(this));
         rvNotificaciones.setAdapter(notificacionAdapter);
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        notificacionAdapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        notificacionAdapter.stopListening();
+    }
 }
