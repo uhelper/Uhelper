@@ -23,6 +23,7 @@ import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
@@ -165,9 +166,10 @@ public class MainActivity extends AppCompatActivity
 
     public void btn(View view)
     {
-        FirebaseFirestore.getInstance().collection(Curso.NAME_COLLECTION).whereArrayContains("estudiantes","uOhnxcOUPUOcsaHCQJrkYRJ9Hdy2")
-                .whereLessThan("fecha",new Timestamp(new Date(System.currentTimeMillis())))
-            .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        String idUsuarioActual=FirebaseAuth.getInstance().getCurrentUser().getUid();
+        Query query=FirebaseFirestore.getInstance().collection(Curso.NAME_COLLECTION)
+                .whereArrayContains("estudiantes",idUsuarioActual);
+            query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful())
@@ -176,6 +178,7 @@ public class MainActivity extends AppCompatActivity
                         List<Curso> cursos=task.getResult().toObjects(Curso.class);
                         Toast.makeText(MainActivity.this, ""+cursos.size(), Toast.LENGTH_SHORT).show();
                     } else {
+                        Toast.makeText(MainActivity.this, "asas", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "Error getting documents: ", task.getException());
                     }
                 }
