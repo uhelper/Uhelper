@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.RegistrarTutoriaActivity"></activity>
+        <activity android:name=".activities.RegistroUsuario1Activity"></activity>
+        <activity android:name=".activities.RegistrarTutoriaActivity" />
         <activity android:name=".activities.DetalleAsignatura" />
         <activity android:name=".activities.AsignaturasActivity" />
         <activity android:name=".activities.RecordatorioActivity" />

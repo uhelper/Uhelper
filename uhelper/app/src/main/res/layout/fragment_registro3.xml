@@ -16,26 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/Arrow" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/textInputLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
 
-        android:layout_marginBottom="84dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="264dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/drawable_txt_registro"
-            android:hint="@string/apellidos"
-            android:textAlignment="viewStart" />
-    </android.support.design.widget.TextInputLayout>
 
     <TextView
         android:id="@+id/txtContinuar"
@@ -48,36 +29,63 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imgFlecha" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/textInputLayout4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="264dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/drawable_txt_registro"
-            android:hint="@string/nombres" />
-    </android.support.design.widget.TextInputLayout>
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgDialogo3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
+        app:layout_constraintBottom_toTopOf="@+id/labNombre"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.611"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dialogoRegistro1" />
+        app:layout_constraintVertical_bias="0.408"
+        app:srcCompat="@drawable/dialogoRegistro3" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/labTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/labDireccion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/txtTelefono"
+            android:layout_width="264dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_txt_registro"
+            android:hint="@string/telefono" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/labDireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/txtDireccion"
+            android:layout_width="264dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_txt_registro"
+            android:hint="@string/direccion"
+            android:textAlignment="viewStart" />
+    </android.support.design.widget.TextInputLayout>
 
 </android.support.constraint.ConstraintLayout>
