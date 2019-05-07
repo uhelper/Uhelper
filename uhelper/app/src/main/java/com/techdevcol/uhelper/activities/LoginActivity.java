@@ -4,9 +4,13 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -40,6 +44,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private GoogleSignInClient mGoogleSignInClient;
     private TextInputEditText email;
     private TextInputEditText password;
+    private TextInputLayout emailInputLayout;
+    private TextInputLayout passwordInputLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,9 +83,53 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         };
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
+        emailInputLayout=findViewById(R.id.emailInputLayout);
+        passwordInputLayout=findViewById(R.id.passwordInputLayout);
+        setUpTextfield();
     }
+
+    private void setUpTextfield() {
+        email.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                validarEmail();
+            }
+        });
+        password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                validarPassword();
+            }
+        });
+    }
+
     public void loginWitEmailAndPassword(View view)
     {
+        validarEmail();
+        validarPassword();
+        if(emailInputLayout.getError() !=null || passwordInputLayout.getError()!=null ){
+            return;
+        }
         showProgressDialog();
         firebaseAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -100,6 +150,23 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     }
                 });
     }
+    public void validarEmail(){
+        if(!Patterns.EMAIL_ADDRESS.matcher(email.getText()).matches()){
+            emailInputLayout.setError(getString(R.string.email_invalido));
+        }
+        else {
+            emailInputLayout.setError(null);
+        }
+    }
+    public void validarPassword(){
+        if(password.getText().length()==0){
+            passwordInputLayout.setError(getString(R.string.text_fiel_password_vacio));
+        }
+        else {
+            passwordInputLayout.setError(null);
+        }
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

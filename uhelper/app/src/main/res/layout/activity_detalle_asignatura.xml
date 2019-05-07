@@ -25,7 +25,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -131,7 +131,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/drawable_actividades_asignatura"
                 android:orientation="vertical"
                 android:padding="8dp">
@@ -157,7 +157,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/drawable_calificaciones_asignatura"
                 android:orientation="vertical"
                 android:padding="8dp">
@@ -200,6 +200,33 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0" />
                 </android.support.constraint.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/drawable_material_estudio_asignatura"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/txtMaterialEstudio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Material de Estudio"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    tools:text="Material de Estudio" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvMaterialEstudio"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_material_apoyo" />
 
             </LinearLayout>
 
