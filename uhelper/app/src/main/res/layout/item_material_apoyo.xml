@@ -14,23 +14,20 @@
         android:orientation="horizontal"
         android:padding="8dp">
 
-        <TextView
-            android:id="@+id/txtPorcentaje"
+
+        <ImageView
+            android:id="@+id/imgTipoDocumento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="(20%)"
-            android:textColor="@color/common_google_signin_btn_text_dark_focused"
-            android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            card_view:srcCompat="@drawable/link" />
 
         <TextView
-            android:id="@+id/txtNota"
+            android:id="@+id/txtDocumento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Nota: 4.3"
+            android:text="Link ejemplos integrales mútiples."
             android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
             android:textSize="18sp" />
