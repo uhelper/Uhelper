@@ -200,6 +200,7 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onClickCursoItem(int count) {
                     //lanzar intent cuando de da click sobre el item de asignaturas
+                    Toast.makeText(MainActivity.this, "count " + count, Toast.LENGTH_SHORT).show();
                 }
             };
         }

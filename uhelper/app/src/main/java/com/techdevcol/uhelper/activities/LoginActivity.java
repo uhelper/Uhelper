@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser()==null)
         {
-            setTheme(R.style.AppTheme);
+            setTheme(R.style.AppThemeLogin);
         }
         setContentView(R.layout.activity_login);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         signInButton = findViewById(R.id.signInButton);
         signInButton.setSize(SignInButton.SIZE_WIDE);
-        signInButton.setColorScheme(SignInButton.COLOR_DARK);
+        //signInButton.setColorScheme(SignInButton.COLOR_DARK);
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
