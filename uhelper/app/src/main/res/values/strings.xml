@@ -35,4 +35,9 @@
     <string name="txt_publicar_tutoria">Publicar tutoria</string>
     <string name="text_fiel_password_vacio">Ingrese la contraseña</string>
     <string name="email_invalido">Email invalido</string>
+    <string name="txt_notificaciones">Notificaciones</string>
+    <string name="txt_recordatorios">Recordatorios</string>
+    <string name="txt_tutorias">Tutorias</string>
+    <string name="txt_configuraciones">Configuraciones</string>
+    <string name="txt_menu_principal">Menú principal</string>
 </resources>

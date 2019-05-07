@@ -14,7 +14,7 @@
         <activity android:name=".activities.DetalleAsignatura" />
         <activity android:name=".activities.AsignaturasActivity" />
         <activity android:name=".activities.RecordatorioActivity" />
-        <activity android:name=".activities.NotificacionesActivity" />
+        <activity android:name=".activities.NotificacionesActivity" android:parentActivityName=".activities.MainActivity"/>
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/SplashTheme">
