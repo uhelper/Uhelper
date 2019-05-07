@@ -26,4 +26,6 @@
     <string name="txt_telefono_contacto">Telefono de contacto</string>
     <string name="txt_horarios">Horarios</string>
     <string name="txt_publicar_tutoria">Publicar tutoria</string>
+    <string name="text_fiel_password_vacio">Ingrese la contraseña</string>
+    <string name="email_invalido">Email invalido</string>
 </resources>
