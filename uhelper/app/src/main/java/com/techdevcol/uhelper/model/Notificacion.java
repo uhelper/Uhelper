@@ -11,10 +11,7 @@ public class Notificacion {
     private String descripcion;
     private Timestamp fecha;
 
-    public Notificacion(String titulo, String descripcion, Timestamp fecha) {
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.fecha = fecha;
+    public Notificacion() {
     }
 
     public String getTitulo() {

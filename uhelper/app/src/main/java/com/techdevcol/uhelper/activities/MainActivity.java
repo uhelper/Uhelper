@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity
     }
     public interface  OnclickAsignaturaListener
     {
-        public void onClickCursoItem(int count);
+        public void onClickCursoItem(Curso curso);
     }
     public OnclickAsignaturaListener getOnclickAsignaturaListener()
     {
@@ -198,9 +198,11 @@ public class MainActivity extends AppCompatActivity
         {
             return new OnclickAsignaturaListener() {
                 @Override
-                public void onClickCursoItem(int count) {
+                public void onClickCursoItem(Curso curso) {
                     //lanzar intent cuando de da click sobre el item de asignaturas
-                    Toast.makeText(MainActivity.this, "count " + count, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, DetalleAsignatura.class);
+                    intent.putExtra(DetalleAsignatura.DATA_CURSO, curso);
+                    startActivity(intent);
                 }
             };
         }
