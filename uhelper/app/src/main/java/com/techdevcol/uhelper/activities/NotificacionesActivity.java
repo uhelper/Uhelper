@@ -39,13 +39,13 @@ public class NotificacionesActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onStart() {
+    protected void onStart() {
         super.onStart();
         notificacionAdapter.startListening();
     }
 
     @Override
-    public void onStop() {
+    protected void onStop() {
         super.onStop();
         notificacionAdapter.stopListening();
     }

@@ -27,7 +27,7 @@ public class NotificacionAdapter extends FirestoreRecyclerAdapter<Notificacion, 
         holder.txtDescripcion.setText(notificacion.getDescripcion());
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        String cadenaFecha = sdf.format(notificacion.getFecha());
+        String cadenaFecha = sdf.format(notificacion.getFecha().toDate());
         holder.txtFecha.setText("Fecha de publicación: " + cadenaFecha);
     }
 
