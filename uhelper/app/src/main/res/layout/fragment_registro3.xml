@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/GUIRegistro1">
+    android:background="@drawable/gui_registro1">
 
     <ImageView
         android:id="@+id/imgFlecha"
@@ -14,7 +14,7 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/Arrow" />
+        app:srcCompat="@drawable/arrow" />
 
 
 
@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.408"
-        app:srcCompat="@drawable/dialogoRegistro3" />
+        app:srcCompat="@drawable/dialogoregistro3" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/labTelefono"
