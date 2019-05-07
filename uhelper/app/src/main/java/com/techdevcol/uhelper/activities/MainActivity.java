@@ -133,17 +133,16 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        if (id == R.id.nav_notificationes) {
+            Intent intent = new Intent(this, NotificacionesActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_recordatorios) {
+            Intent intent = new Intent(this, RecordatorioActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_tutorias) {
+            Intent intent = new Intent(this, NotificacionesActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_configuraciones) {
 
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -192,7 +191,7 @@ public class MainActivity extends AppCompatActivity
     }
     public interface  OnclickAsignaturaListener
     {
-        public void onClickCursoItem(int count);
+        public void onClickCursoItem(Curso curso);
     }
     public OnclickAsignaturaListener getOnclickAsignaturaListener()
     {
@@ -200,9 +199,11 @@ public class MainActivity extends AppCompatActivity
         {
             return new OnclickAsignaturaListener() {
                 @Override
-                public void onClickCursoItem(int count) {
+                public void onClickCursoItem(Curso curso) {
                     //lanzar intent cuando de da click sobre el item de asignaturas
-                    Toast.makeText(MainActivity.this, "count " + count, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, DetalleAsignatura.class);
+                    intent.putExtra(DetalleAsignatura.DATA_CURSO, curso);
+                    startActivity(intent);
                 }
             };
         }

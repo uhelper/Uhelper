@@ -2,11 +2,16 @@ package com.techdevcol.uhelper.model;
 
 import com.google.firebase.Timestamp;
 
-public class Curso {
+import java.io.Serializable;
+import java.util.Date;
+
+public class Curso implements Serializable
+{
     public static final String NAME_COLLECTION = "Curso";
     private Docente docente;
     private Asignatura asignatura;
-    private Timestamp fecha;
+    private Date fecha;
+    private int grupo;
     private Curso(){
 
     }
@@ -27,11 +32,19 @@ public class Curso {
         this.asignatura = asignatura;
     }
 
-    public Timestamp getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(Timestamp fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public int getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(int grupo) {
+        this.grupo = grupo;
     }
 }

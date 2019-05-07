@@ -64,7 +64,7 @@ public class AsignaturasAdapter extends FirestoreRecyclerAdapter<Curso, Asignatu
                     int pos=getAdapterPosition();
                     if(onclickAsignaturaListener!=null && pos!=RecyclerView.NO_POSITION)
                     {
-                        onclickAsignaturaListener.onClickCursoItem(pos);
+                        onclickAsignaturaListener.onClickCursoItem(getItem(pos));
                     }
                 }
             });
