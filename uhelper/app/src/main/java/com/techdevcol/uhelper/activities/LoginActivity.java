@@ -249,4 +249,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             mProgressDialog.dismiss();
         }
     }
+
+    public void onClickRegistro(View view){
+        Intent intent=new Intent(this,RegistroUsuarioActivity.class);
+        startActivity(intent);
+    }
 }

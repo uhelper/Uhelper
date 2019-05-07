@@ -17,7 +17,8 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dialogoregistro4" />
+        app:srcCompat="@drawable/dialogoregistro4"
+        android:contentDescription="@string/todo" />
 
     <Button
         android:id="@+id/btnEmpezar"

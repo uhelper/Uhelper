@@ -1,28 +1,26 @@
 package com.techdevcol.uhelper.adapters;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class SectionStatePagerAdapterRegistro extends FragmentStatePagerAdapter {
 
-    private final List<Fragment> mFragmentList = new ArrayList<>();
-
+    private  List<Fragment> mFragmentList = new ArrayList<>();
 
     public SectionStatePagerAdapterRegistro(FragmentManager fm) {
         super(fm);
     }
 
 
-    public void addFragment(Fragment fragment) {
-        mFragmentList.add(fragment);
+    public void addFragments(List<Fragment>fragments) {
+        mFragmentList=fragments;
     }
 
     @Override
-    public Fragment getItem(int i) {
+    public Fragment getItem(int i)
+    {
         return mFragmentList.get(i);
     }
 
@@ -30,4 +28,5 @@ public class SectionStatePagerAdapterRegistro extends FragmentStatePagerAdapter 
     public int getCount() {
         return mFragmentList.size();
     }
+
 }

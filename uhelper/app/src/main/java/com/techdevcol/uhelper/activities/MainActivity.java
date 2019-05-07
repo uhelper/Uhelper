@@ -1,4 +1,5 @@
 package com.techdevcol.uhelper.activities;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
@@ -88,7 +89,8 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
-            finish();
+            Intent intent=new Intent(this,LoginActivity.class);
+            startActivity(intent);
         }
     }
 
