@@ -93,7 +93,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/drawable_btn_publicar_tutoria"
+        android:background="@drawable/drawable_btn_usuario"
         android:padding="16dp"
         android:text="@string/txt_publicar_tutoria"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"

@@ -13,8 +13,8 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
+    <string name="email">Usuario</string>
+    <string name="password">Contraseña</string>
     <string name="iniciar_sesion">Iniciar sesion</string>
     <string name="cargando">Cargando . ...</string>
     <string name="txt_notificaciones">Notificaciones</string>
