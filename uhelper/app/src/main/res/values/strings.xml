@@ -21,4 +21,9 @@
     <string name="txt_recordatorios">Recordatorios</string>
     <string name="tab_text_1">Chats</string>
     <string name="tab_text_2">Asignaturas</string>
+    <string name="txt_nueva_tutoria">Nueva Tutoria</string>
+    <string name="txt_nombre_asignatura">Nombre de la asignatura</string>
+    <string name="txt_telefono_contacto">Telefono de contacto</string>
+    <string name="txt_horarios">Horarios</string>
+    <string name="txt_publicar_tutoria">Publicar tutoria</string>
 </resources>
