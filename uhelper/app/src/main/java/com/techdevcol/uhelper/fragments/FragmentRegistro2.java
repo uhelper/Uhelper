@@ -12,10 +12,11 @@ import android.widget.TextView;
 import com.techdevcol.uhelper.R;
 import com.techdevcol.uhelper.activities.RegistroUsuarioActivity;
 
-public class FragmentRegistro1 extends Fragment {
+public class FragmentRegistro2 extends Fragment {
 
-    private TextView txtNombres;
-    private TextView txtApellidos;
+
+    private TextView txtCarrera;
+    private TextView txtSemestre;
 
 
     @Nullable
@@ -23,18 +24,16 @@ public class FragmentRegistro1 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_registro1, container, false);
 
-        txtNombres = (TextView) view.findViewById(R.id.txtNombres);
-        txtApellidos = (TextView) view.findViewById(R.id.txtApellidos);
+        txtCarrera = (TextView) view.findViewById(R.id.txtCarrera);
+        txtSemestre = (TextView) view.findViewById(R.id.txtSemestre);
 
         return view;
     }
 
     public void openNextFragment() {
-        ((RegistroUsuarioActivity) getActivity()).setViewPager(1);
+        ((RegistroUsuarioActivity) getActivity()).setViewPager(2);
     }
 
 
+
 }
-
-
-

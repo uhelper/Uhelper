@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/dialogoregistro4" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnEmpezar"
         style="@style/empezar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
