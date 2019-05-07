@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.techdevcol.uhelper.R;
+import com.techdevcol.uhelper.activities.RegistroUsuarioActivity;
 
 public class FragmentRegistro1 extends Fragment {
 
@@ -27,6 +28,12 @@ public class FragmentRegistro1 extends Fragment {
 
         return view;
     }
+
+    public void openNextFragment() {
+        ((RegistroUsuarioActivity) getActivity()).setViewPager(1);
+    }
+
+
 }
 
 

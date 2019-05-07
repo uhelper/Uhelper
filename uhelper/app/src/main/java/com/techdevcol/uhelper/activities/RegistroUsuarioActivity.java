@@ -12,7 +12,7 @@ import com.techdevcol.uhelper.fragments.FragmentRegistro3;
 import com.techdevcol.uhelper.fragments.FragmentRegistro4;
 
 
-public class RegistroUsuario1Activity extends AppCompatActivity {
+public class RegistroUsuarioActivity extends AppCompatActivity {
 
 
     private SectionStatePagerAdapterRegistro sectionStatePager;
@@ -24,7 +24,7 @@ public class RegistroUsuario1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_registro_usuario1);
 
         sectionStatePager = new SectionStatePagerAdapterRegistro(getSupportFragmentManager());
-        viewPager = (ViewPager) findViewById(R.id.container);
+        viewPager = findViewById(R.id.container);
 
 
     }
