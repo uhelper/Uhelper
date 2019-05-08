@@ -28,27 +28,27 @@ public class DetalleAsignatura extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_asignatura);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_black_24dp);
         curso = (Curso) getIntent().getSerializableExtra(DATA_CURSO);
-
         txtNombreAsignatura = findViewById(R.id.txtAsignatura);
         txtCreditos = findViewById(R.id.txtCreditos);
         txtSemestre = findViewById(R.id.txtSemestre);
         txtGrupo = findViewById(R.id.txtGrupo);
         txtDocente = findViewById(R.id.txtDocente);
+        setUpRecyclerViewActividades();
+        llenarDatos();
+    }
+    public void setUpRecyclerViewActividades(){
         rvActividades = findViewById(R.id.rvActividades);
-
-        String idUsuarioActual= FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Query query = FirebaseFirestore.getInstance().collection(Actividad.NAME_COLLECTION)
-                .whereArrayContains("curso",idUsuarioActual).;
+        Query query = FirebaseFirestore.getInstance().collection(Curso.NAME_COLLECTION).document(curso.getCursoId())
+                .collection(Actividad.NAME_COLLECTION);
         FirestoreRecyclerOptions<Actividad> options= new FirestoreRecyclerOptions.Builder<Actividad>()
                 .setQuery(query, Actividad.class)
                 .build();
         actividadAdapter = new ActividadAdapter(options);
         rvActividades.setLayoutManager(new LinearLayoutManager(this));
         rvActividades.setAdapter(actividadAdapter);
-        llenarDatos();
     }
-
     @Override
     protected void onStart() {
         super.onStart();

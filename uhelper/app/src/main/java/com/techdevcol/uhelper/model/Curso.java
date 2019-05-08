@@ -9,6 +9,7 @@ import java.util.Date;
 public class Curso implements Serializable
 {
     public static final String NAME_COLLECTION = "Curso";
+    private String cursoId;
     private Docente docente;
     private Asignatura asignatura;
     private Date fecha;
@@ -57,5 +58,13 @@ public class Curso implements Serializable
 
     public void setActividades(ArrayList<Actividad> actividades) {
         this.actividades = actividades;
+    }
+
+    public String getCursoId() {
+        return cursoId;
+    }
+
+    public void setCursoId(String cursoId) {
+        this.cursoId = cursoId;
     }
 }

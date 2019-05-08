@@ -3,12 +3,13 @@ package com.techdevcol.uhelper.model;
 import com.google.firebase.Timestamp;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Actividad implements Serializable
 {
-    public static final String NAME_COLLECTION = "Actividad";
+    public static final String NAME_COLLECTION = "Actividades";
     private String descripcion;
-    private Timestamp fecha;
+    private Date fecha;
 
     public Actividad() {
 
@@ -22,11 +23,11 @@ public class Actividad implements Serializable
         this.descripcion = descripcion;
     }
 
-    public Timestamp getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(Timestamp fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 }

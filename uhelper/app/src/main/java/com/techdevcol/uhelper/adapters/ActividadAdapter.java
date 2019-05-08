@@ -25,7 +25,7 @@ public class ActividadAdapter extends FirestoreRecyclerAdapter<Actividad, Activi
         holder.txtDescripcion.setText(actividad.getDescripcion());
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        String cadenaFecha = sdf.format(actividad.getFecha().toDate());
+        String cadenaFecha = sdf.format(actividad.getFecha());
         holder.txtFecha.setText("Fecha de publicación: " + cadenaFecha);
     }
 
