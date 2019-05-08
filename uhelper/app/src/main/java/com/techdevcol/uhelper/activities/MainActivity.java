@@ -17,22 +17,17 @@ import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
 import com.techdevcol.uhelper.R;
 import com.techdevcol.uhelper.adapters.SectionsPagerAdapter;
 import com.techdevcol.uhelper.model.Curso;
-
-import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
@@ -42,12 +37,14 @@ public class MainActivity extends AppCompatActivity
     //oidor del click sobre un item de asignaura
     private OnclickAsignaturaListener onclickAsignaturaListener;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
+    private MenuItem lastItemSelected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        lastItemSelected=null;
         //Navigation drawer
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -132,19 +129,19 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_notificationes) {
             Intent intent = new Intent(this, NotificacionesActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_recordatorios) {
+            item.setChecked(false);
             Intent intent = new Intent(this, RecordatorioActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_tutorias) {
-            Intent intent = new Intent(this, NotificacionesActivity.class);
-            startActivity(intent);
+
         } else if (id == R.id.nav_configuraciones) {
 
         }
+        lastItemSelected=item;
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -154,6 +151,10 @@ public class MainActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
         FirebaseAuth.getInstance().addAuthStateListener(firebaseAuthListener);
+        if(lastItemSelected!=null){
+            lastItemSelected.setChecked(false);
+            lastItemSelected=null;
+        }
     }
 
     @Override
@@ -165,30 +166,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void btn(View view)
-    {
-        String idUsuarioActual=FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Query query=FirebaseFirestore.getInstance().collection(Curso.NAME_COLLECTION)
-                .whereArrayContains("estudiantes",idUsuarioActual);
-            query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful())
-                {
-                    if (task.isSuccessful()) {
-                        List<Curso> cursos=task.getResult().toObjects(Curso.class);
-                        Toast.makeText(MainActivity.this, ""+cursos.size(), Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(MainActivity.this, "asas", Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "Error getting documents: ", task.getException());
-                    }
-                }
-                else {
-
-                }
-            }
-        });
-    }
     public interface  OnclickAsignaturaListener
     {
         public void onClickCursoItem(Curso curso);
@@ -209,4 +186,5 @@ public class MainActivity extends AppCompatActivity
         }
         return onclickAsignaturaListener;
     }
+
 }
