@@ -8,7 +8,7 @@
     tools:context=".activities.AsignaturasActivity">
 
     <TextView
-        android:id="@+id/txtPromedio"
+        android:id="@+id/txtDefinitiva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

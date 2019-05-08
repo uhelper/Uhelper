@@ -12,16 +12,17 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.techdevcol.uhelper.R;
 import com.techdevcol.uhelper.adapters.ActividadAdapter;
-import com.techdevcol.uhelper.adapters.NotificacionAdapter;
+import com.techdevcol.uhelper.adapters.CalificacionAdapter;
 import com.techdevcol.uhelper.model.Actividad;
+import com.techdevcol.uhelper.model.Calificacion;
 import com.techdevcol.uhelper.model.Curso;
-import com.techdevcol.uhelper.model.Notificacion;
 
 public class DetalleAsignatura extends AppCompatActivity {
 
-    private TextView txtNombreAsignatura, txtCreditos, txtSemestre, txtGrupo, txtDocente;
-    private RecyclerView rvActividades;
+    private TextView txtNombreAsignatura, txtCreditos, txtSemestre, txtGrupo, txtDocente, txtDefinitiva;
+    private RecyclerView rvActividades, rvCalificaciones;
     private ActividadAdapter actividadAdapter;
+    private CalificacionAdapter calificacionAdapter;
     private Curso curso;
     public final static String DATA_CURSO = "curso";
     @Override
@@ -35,9 +36,12 @@ public class DetalleAsignatura extends AppCompatActivity {
         txtSemestre = findViewById(R.id.txtSemestre);
         txtGrupo = findViewById(R.id.txtGrupo);
         txtDocente = findViewById(R.id.txtDocente);
+        txtDefinitiva = findViewById(R.id.txtDefinitiva);
         setUpRecyclerViewActividades();
+        setUpRecyclerViewCalificaciones();
         llenarDatos();
     }
+
     public void setUpRecyclerViewActividades(){
         rvActividades = findViewById(R.id.rvActividades);
         Query query = FirebaseFirestore.getInstance().collection(Curso.NAME_COLLECTION).document(curso.getCursoId())
@@ -49,16 +53,38 @@ public class DetalleAsignatura extends AppCompatActivity {
         rvActividades.setLayoutManager(new LinearLayoutManager(this));
         rvActividades.setAdapter(actividadAdapter);
     }
+
+    public void setUpRecyclerViewCalificaciones(){
+        rvCalificaciones = findViewById(R.id.rvCalificaciones);
+        String idUsuarioActual= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        Query query = FirebaseFirestore.getInstance().collection(Curso.NAME_COLLECTION).document(curso.getCursoId())
+                .collection(Calificacion.NAME_COLLECTION).whereEqualTo("userId", idUsuarioActual);
+        FirestoreRecyclerOptions<Calificacion> options= new FirestoreRecyclerOptions.Builder<Calificacion>()
+                .setQuery(query, Calificacion.class)
+                .build();
+        calificacionAdapter = new CalificacionAdapter(options);
+        rvCalificaciones.setLayoutManager(new LinearLayoutManager(this));
+        rvCalificaciones.setAdapter(calificacionAdapter);
+    }
+
+    public double calcularDefinitiva()
+    {
+        double definitiva = calificacionAdapter.getDefinitiva();
+        return definitiva;
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
         actividadAdapter.startListening();
+        calificacionAdapter.startListening();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         actividadAdapter.stopListening();
+        calificacionAdapter.stopListening();
     }
 
     private void llenarDatos()
@@ -68,5 +94,6 @@ public class DetalleAsignatura extends AppCompatActivity {
         txtSemestre.setText("Semestre: "+curso.getAsignatura().getSemestre()+"");
         txtGrupo.setText("Grupo: "+curso.getGrupo()+"");
         txtDocente.setText("Doc "+curso.getDocente().getNombres() + " "+curso.getDocente().getApellidos());
+        txtDefinitiva.setText("Definitiva: " + calcularDefinitiva());
     }
 }

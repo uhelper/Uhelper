@@ -45,11 +45,12 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
                         android:gravity="center"
                         android:text="Fisica I"
                         android:textColor="@color/common_google_signin_btn_text_dark_focused"
                         android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
-                        android:textSize="44sp"
+                        android:textSize="36sp"
                         android:textStyle="bold"
                         tools:text="Fisica I" />
 
@@ -151,6 +152,7 @@
                     android:id="@+id/rvActividades"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:scrollbars="vertical"
                     tools:itemCount="3"
                     tools:listitem="@layout/item_actividad" />
             </LinearLayout>
@@ -177,7 +179,7 @@
                     android:id="@+id/rvCalificaciones"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:itemCount="3"
+                    android:scrollbars="vertical"
                     tools:listitem="@layout/item_calificacion" />
 
                 <android.support.constraint.ConstraintLayout
@@ -185,10 +187,10 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/txtPromedio"
+                        android:id="@+id/txtDefinitiva"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Promedio: 3.8"
+                        android:text="Definitiva: 3.8"
                         android:textColor="@color/common_google_signin_btn_text_dark_focused"
                         android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
                         android:textSize="20dp"

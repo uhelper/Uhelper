@@ -15,6 +15,7 @@ public class Curso implements Serializable
     private Date fecha;
     private int grupo;
     private ArrayList<Actividad> actividades;
+    private ArrayList<Calificacion> calificaciones;
 
     private Curso(){
 
@@ -58,6 +59,14 @@ public class Curso implements Serializable
 
     public void setActividades(ArrayList<Actividad> actividades) {
         this.actividades = actividades;
+    }
+
+    public ArrayList<Calificacion> getCalificaciones() {
+        return calificaciones;
+    }
+
+    public void setCalificaciones(ArrayList<Calificacion> calificaciones) {
+        this.calificaciones = calificaciones;
     }
 
     public String getCursoId() {

@@ -2,15 +2,16 @@ package com.techdevcol.uhelper.model;
 
 import java.io.Serializable;
 
-public class Calificaciones implements Serializable {
-    private int nota;
+public class Calificacion implements Serializable {
+    public static final String NAME_COLLECTION = "Calificaciones";
+    private double nota;
     private double porcentaje;
     private String userId;
 
-    public Calificaciones() {
+    public Calificacion() {
     }
 
-    public int getNota() {
+    public double getNota() {
         return nota;
     }
 
