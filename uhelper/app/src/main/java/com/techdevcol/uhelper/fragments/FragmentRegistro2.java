@@ -112,11 +112,15 @@ public class FragmentRegistro2 extends Fragment implements IvalidFragment{
             return false;
         }
         else {
-            Estudiante estudiante= ((RegistroUsuarioActivity) this.getActivity()).getEstudiantePoAgregar();
-            estudiante.setCarrera(txtCarrera.getText().toString());
-            estudiante.setSemestre(Integer.parseInt(txtSemestre.getText().toString()));
             return true;
         }
+    }
+
+    @Override
+    public Estudiante capturarDatosFragment(Estudiante estudiante) {
+        estudiante.setCarrera(txtCarrera.getText().toString());
+        estudiante.setSemestre(Integer.parseInt(txtSemestre.getText().toString()));
+        return estudiante;
     }
 
 }

@@ -1,14 +1,17 @@
 package com.techdevcol.uhelper.model;
 
+import com.google.firebase.firestore.Exclude;
+
 public class Estudiante {
-    private static final String NAME_COLLECTION = "Estudiantes";
+    public static final String NAME_COLLECTION = "Estudiantes";
     private String nombres;
     private String apellidos;
     private String celular;
     private String carrera;
     private int semestre;
     private String email;
-
+    @Exclude
+    public String password;
     public Estudiante()
     {
 
@@ -72,5 +75,14 @@ public class Estudiante {
                 ", semestre=" + semestre +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    @Exclude
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
