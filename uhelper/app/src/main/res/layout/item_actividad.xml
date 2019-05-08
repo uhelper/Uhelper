@@ -26,7 +26,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtActividad"
+                android:id="@+id/txtDescripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Subir laboratorio tiro parabólico."
@@ -36,7 +36,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtFechaEntrega"
+                android:id="@+id/txtFecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fecha de entrega: 12 de Abril"

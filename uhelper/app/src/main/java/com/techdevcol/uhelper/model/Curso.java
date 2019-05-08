@@ -3,6 +3,7 @@ package com.techdevcol.uhelper.model;
 import com.google.firebase.Timestamp;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Curso implements Serializable
@@ -12,6 +13,8 @@ public class Curso implements Serializable
     private Asignatura asignatura;
     private Date fecha;
     private int grupo;
+    private ArrayList<Actividad> actividades;
+
     private Curso(){
 
     }
@@ -46,5 +49,13 @@ public class Curso implements Serializable
 
     public void setGrupo(int grupo) {
         this.grupo = grupo;
+    }
+
+    public ArrayList<Actividad> getActividades() {
+        return actividades;
+    }
+
+    public void setActividades(ArrayList<Actividad> actividades) {
+        this.actividades = actividades;
     }
 }
