@@ -1,5 +1,6 @@
 package com.techdevcol.uhelper.activities;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -13,6 +14,7 @@ import com.techdevcol.uhelper.fragments.FragmentRegistro2;
 import com.techdevcol.uhelper.fragments.FragmentRegistro3;
 import com.techdevcol.uhelper.fragments.FragmentRegistro4;
 import com.techdevcol.uhelper.fragments.IvalidFragment;
+import com.techdevcol.uhelper.model.Estudiante;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private SectionStatePagerAdapterRegistro sectionStatePager;
     private ViewPager viewPager;
+    private Estudiante estudiantePoAgregar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
     private void setupViewPager() {
         sectionStatePager = new SectionStatePagerAdapterRegistro(getSupportFragmentManager());
         viewPager = findViewById(R.id.container);
+        estudiantePoAgregar=new Estudiante();
         mFragmentList.add(new FragmentRegistro1());
         mFragmentList.add(new FragmentRegistro2());
         mFragmentList.add(new FragmentRegistro3());
@@ -62,8 +66,29 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
             }
         });
     }
-    public void setViewPager(int fragmenNumber) {
-        viewPager.setCurrentItem(fragmenNumber);
+
+    public void registrarEstudiante(){
+        showProgressDialog();
+        
     }
 
+    public ProgressDialog mProgressDialog;
+
+    public void showProgressDialog() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage(getString(R.string.cargando));
+            mProgressDialog.setIndeterminate(true);
+        }
+        mProgressDialog.show();
+    }
+
+    public void hideProgressDialog() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
+    }
+    public Estudiante getEstudiantePoAgregar(){
+        return estudiantePoAgregar;
+    }
 }

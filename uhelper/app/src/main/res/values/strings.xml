@@ -22,8 +22,8 @@
     <string name="email">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="iniciar_sesion">Iniciar sesion</string>
-    <string name="cargando">Cargando . ...</string>
-    <string name="continuar">Continuar</string>
+    <string name="cargando">Cargando</string>
+    <string name="continuar">Desliza</string>
     <string name="tab_text_1">Chats</string>
     <string name="tab_text_2">Asignaturas</string>
     <string name="txt_nueva_tutoria">Nueva Tutoria</string>
@@ -41,4 +41,7 @@
     <string name="txt_notificaciones">Notificaciones</string>
     <string name="txt_recordatorios">Recordatorios</string>
     <string name="creditos">Creditos:</string>
+    <string name="input_registro_nombres">Ingrese su nombre</string>
+    <string name="input_registro_apellidos">Ingrese sus apellidos</string>
+    <string name="email_input">Email</string>
 </resources>
