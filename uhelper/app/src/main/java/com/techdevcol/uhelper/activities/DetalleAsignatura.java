@@ -1,9 +1,11 @@
 package com.techdevcol.uhelper.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -39,6 +41,14 @@ public class DetalleAsignatura extends AppCompatActivity {
         txtDefinitiva = findViewById(R.id.txtDefinitiva);
         setUpRecyclerViewActividades();
         setUpRecyclerViewCalificaciones();
+        findViewById(R.id.fabTutor).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(DetalleAsignatura.this,TutoresPorAsignatura.class);
+                intent.putExtra(TutoresPorAsignatura.DATA_ASIGNATURA,curso.getAsignatura());
+                startActivity(intent);
+            }
+        });
         llenarDatos();
     }
 

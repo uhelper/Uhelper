@@ -47,4 +47,10 @@
     <string name="input_password">La constraseña debe tener minimo 6 caracteres</string>
     <string name="input_password_confirmacion">Las contraseña no coinciden</string>
     <string name="confirmar_contrasenia">Confirmar contraseña</string>
+    <string name="proximamente">Proximamente</string>
+    <string name="txtNombreTutor">Nombre del Tutor</string>
+    <string name="txtHorarios">Horarios:</string>
+    <string name="btnSolicitarClase">Solicitar</string>
+    <string name="txtNombreClase">Nombre</string>
+
 </resources>

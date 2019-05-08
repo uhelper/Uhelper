@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".activities.DetalleAsignatura">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabTutor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView3"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView3"
+        app:srcCompat="@drawable/fab_open_tutor" />
+
     <ScrollView
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"

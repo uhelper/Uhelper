@@ -9,15 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.RegistroUsuarioActivity"></activity>
+        <activity android:name=".activities.TutoresPorAsignatura"></activity>
+        <activity android:name=".activities.RegistroUsuarioActivity" />
         <activity android:name=".activities.RegistrarTutoriaActivity" />
-        <activity android:name=".activities.DetalleAsignatura"
-            android:parentActivityName=".activities.MainActivity"/>
+        <activity
+            android:name=".activities.DetalleAsignatura"
+            android:parentActivityName=".activities.MainActivity" />
         <activity android:name=".activities.AsignaturasActivity" />
-        <activity android:name=".activities.RecordatorioActivity"
-            android:parentActivityName=".activities.MainActivity"/>
-        <activity android:name=".activities.NotificacionesActivity"
-            android:parentActivityName=".activities.MainActivity"/>
+        <activity
+            android:name=".activities.RecordatorioActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.NotificacionesActivity"
+            android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/SplashTheme">
