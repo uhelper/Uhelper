@@ -44,4 +44,7 @@
     <string name="input_registro_nombres">Ingrese su nombre</string>
     <string name="input_registro_apellidos">Ingrese sus apellidos</string>
     <string name="email_input">Email</string>
+    <string name="input_password">La constraseña debe tener minimo 6 caracteres</string>
+    <string name="input_password_confirmacion">Las contraseña no coinciden</string>
+    <string name="confirmar_contrasenia">Confirmar contraseña</string>
 </resources>
