@@ -25,7 +25,7 @@ public class NotificacionesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notificaciones);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_black_24dp);
-
+        getSupportActionBar().setTitle(getString(R.string.txt_notificaciones));
         rvNotificaciones= findViewById(R.id.rvNotificaciones);
         String idUsuarioActual= FirebaseAuth.getInstance().getCurrentUser().getUid();
         Query query = FirebaseFirestore.getInstance().collection(Notificacion.NAME_COLLECTION)
