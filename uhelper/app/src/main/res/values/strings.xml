@@ -52,5 +52,6 @@
     <string name="txtHorarios">Horarios:</string>
     <string name="btnSolicitarClase">Solicitar</string>
     <string name="txtNombreClase">Nombre</string>
+    <string name="tutores">Tutores</string>
 
 </resources>

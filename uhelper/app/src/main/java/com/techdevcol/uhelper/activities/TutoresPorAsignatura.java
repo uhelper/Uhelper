@@ -26,6 +26,8 @@ public class TutoresPorAsignatura extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutores_por_asignatura);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_black_24dp);
+        getSupportActionBar().setTitle(R.string.tutores);
         asignatura= (Asignatura) getIntent().getSerializableExtra(DATA_ASIGNATURA);
         textViewNombreAsignatura=findViewById(R.id.labNombreAsignatura);
         textViewNombreAsignatura.setText(asignatura.getNombre());
